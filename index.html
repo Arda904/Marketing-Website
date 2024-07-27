@@ -1,136 +1,222 @@
-<section class="flex flex-col items-center bg-white">
-  <header class="flex flex-col justify-center self-stretch w-full text-black max-md:max-w-full">
-    <nav class="flex justify-center items-center px-16 py-2.5 w-full bg-white shadow-[0px_0px_5px_rgba(0,0,0,0.7)] max-md:px-5 max-md:max-w-full">
-      <div class="flex gap-5 justify-between max-w-full w-[600px] max-md:flex-wrap">
-        <div class="flex flex-col text-xs font-medium text-center whitespace-nowrap tracking-[4.98px]">
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/641a0ccac91c267016f48e3cc977327549e8b5111786857e0c60dcb8cd7bd97a?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Marketing logo" class="self-center aspect-[1.35] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[74px]" />
-          <div>MARKETING</div>
+<style>
+.marketing-section { background-color: #fff; display: flex; flex-direction: column; align-items: center; }
+.header { align-self: stretch; display: flex; width: 100%; flex-direction: column; color: #000; justify-content: center; }
+@media (max-width: 991px) { .header { max-width: 100%; } }
+.nav-container { background-color: #fff; box-shadow: 0 0 5px rgba(0, 0, 0, 0.7); display: flex; width: 100%; align-items: center; justify-content: center; padding: 10px 60px; }
+@media (max-width: 991px) { .nav-container { max-width: 100%; padding: 0 20px; } }
+.nav-content { display: flex; width: 600px; max-width: 100%; gap: 20px; justify-content: space-between; }
+@media (max-width: 991px) { .nav-content { flex-wrap: wrap; } }
+.logo-container { display: flex; flex-direction: column; font-size: 3px; font-weight: 500; white-space: nowrap; text-align: center; letter-spacing: 4.98px; }
+@media (max-width: 991px) { .logo-container { white-space: initial; } }
+.logo { aspect-ratio: 1.35; object-fit: auto; object-position: center; width: 74px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); align-self: center; }
+.brand-name { font-family: Oswald, sans-serif; }
+.nav-links { display: flex; gap: 20px; font-size: 14px; font-weight: 400; margin: auto 0; }
+.nav-link { font-family: Oswald, sans-serif; }
+.nav-link-active { color: #1d67cd; }
+.hero-section { align-self: stretch; display: flex; width: 100%; flex-direction: column; align-items: center; font-size: 48px; color: #000; font-weight: 500; text-align: center; padding: 44px 60px 0; }
+@media (max-width: 991px) { .hero-section { max-width: 100%; font-size: 40px; padding: 0 20px; } }
+.hero-content { z-index: 10; display: flex; width: 490px; max-width: 100%; flex-direction: column; align-items: center; }
+@media (max-width: 991px) { .hero-content { font-size: 40px; } }
+.hero-title { font-family: Oswald, sans-serif; align-self: stretch; }
+@media (max-width: 991px) { .hero-title { max-width: 100%; font-size: 40px; } }
+.hero-subtitle { font-family: Oswald, sans-serif; color: #ff4444; margin-top: 68px; }
+@media (max-width: 991px) { .hero-subtitle { margin-top: 40px; font-size: 40px; } }
+.cta-button { border-radius: 47px; background-color: #ff4444; box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.59); margin-top: 49px; color: #fff; padding: 29px 42px; font: 28px Oswald, sans-serif; border: 2px solid #000; }
+@media (max-width: 991px) { .cta-button { margin-top: 40px; padding: 0 20px; } }
+.marketing-text { margin-top: 111px; font: 40px Oswald, sans-serif; }
+@media (max-width: 991px) { .marketing-text { margin-top: 40px; } }
+.description { text-align: center; color: #000; margin-top: 53px; font: 300 32px Oswald, sans-serif; }
+@media (max-width: 991px) { .description { max-width: 100%; margin-top: 40px; } }
+.question-section { text-align: center; color: #000; margin-top: 93px; font: 500 40px Akshar, sans-serif; }
+@media (max-width: 991px) { .question-section { max-width: 100%; margin-top: 40px; } }
+.options-container { margin-top: 8px; width: 724px; max-width: 100%; padding: 0 20px; }
+.options-grid { gap: 20px; display: flex; }
+@media (max-width: 991px) { .options-grid { flex-direction: column; align-items: stretch; gap: 0; } }
+.option-column { display: flex; flex-direction: column; line-height: normal; width: 35%; margin-left: 0; }
+@media (max-width: 991px) { .option-column { width: 100%; } }
+.option-content { display: flex; margin-top: 22px; flex-grow: 1; flex-direction: column; font-size: 12px; color: #000; font-weight: 300; text-align: center; }
+@media (max-width: 991px) { .option-content { margin-top: 40px; } }
+.option-icon { aspect-ratio: 1; object-fit: auto; object-position: center; width: 43px; align-self: center; }
+.option-title { margin-top: 30px; font: 500 14px Oswald, sans-serif; }
+.option-description { font-family: Oswald, sans-serif; margin-top: 29px; }
+.option-note { font-family: Oswald, sans-serif; margin-top: 22px; }
+.difference-title { text-align: center; color: #000; margin-top: 65px; font: 400 56px Oswald, sans-serif; }
+@media (max-width: 991px) { .difference-title { max-width: 100%; margin-top: 40px; font-size: 40px; } }
+.difference-grid { margin-top: 42px; width: 979px; max-width: 100%; }
+@media (max-width: 991px) { .difference-grid { margin-top: 40px; } }
+.difference-row { gap: 20px; display: flex; }
+@media (max-width: 991px) { .difference-row { flex-direction: column; align-items: stretch; gap: 0; } }
+.difference-column { display: flex; flex-direction: column; line-height: normal; width: 50%; margin-left: 0; }
+@media (max-width: 991px) { .difference-column { width: 100%; } }
+.difference-item { background-color: rgba(255, 255, 255, 0.002); box-shadow: 0 1px 4px #000; display: flex; flex-grow: 1; flex-direction: column; font-size: 16px; color: #000; font-weight: 400; text-align: center; justify-content: center; width: 100%; padding: 1px; border: 1px solid #808080; }
+@media (max-width: 991px) { .difference-item { max-width: 100%; margin-top: 37px; } }
+.difference-content { background-color: #fff; display: flex; flex-direction: column; align-items: center; padding: 80px; }
+@media (max-width: 991px) { .difference-content { max-width: 100%; padding: 0 20px; } }
+.difference-heading { font: 30px Oswald, sans-serif; }
+.difference-text { font-family: Oswald, sans-serif; line-height: 22px; margin-top: 37px; }
+.difference-subtext { font-family: Oswald, sans-serif; margin: 30px 0 16px; }
+.cta-section { background-color: #404040; align-self: stretch; display: flex; margin-top: 68px; width: 100%; align-items: center; color: #fff; font-weight: 500; text-align: center; justify-content: center; padding: 65px 60px; }
+@media (max-width: 991px) { .cta-section { max-width: 100%; margin-top: 40px; padding: 0 20px; } }
+.cta-content { display: flex; width: 355px; max-width: 100%; flex-direction: column; }
+.cta-text { font: 32px Oswald, sans-serif; }
+.cta-button-secondary { text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); border-radius: 47px; background-color: #ff4444; box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.59); align-self: center; margin-top: 60px; padding: 22px 28px; font: 28px Oswald, sans-serif; border: 2px solid #000; }
+@media (max-width: 991px) { .cta-button-secondary { margin-top: 40px; padding: 0 20px; } }
+.footer { background-color: #000; align-self: stretch; min-height: 171px; width: 100%; }
+@media (max-width: 991px) { .footer { max-width: 100%; } }
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+</style>
+
+<section class="marketing-section">
+  <header class="header">
+    <nav class="nav-container">
+      <div class="nav-content">
+        <div class="logo-container">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/641a0ccac91c267016f48e3cc977327549e8b5111786857e0c60dcb8cd7bd97a?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" class="logo" alt="Marketing company logo" />
+          <div class="brand-name">MARKETING</div>
         </div>
-        <ul class="flex gap-5 my-auto text-sm">
-          <li><a href="#" class="text-blue-700">Home</a></li>
-          <li><a href="#">Free Marketing Analysis</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
+        <div class="nav-links">
+          <a href="#" class="nav-link nav-link-active">Home</a>
+          <a href="#" class="nav-link">Free Marketing Analysis</a>
+          <a href="#" class="nav-link">Blog</a>
+        </div>
       </div>
     </nav>
   </header>
-  <main class="flex flex-col items-center self-stretch px-16 pt-11 w-full text-5xl font-medium text-center text-black max-md:px-5 max-md:max-w-full max-md:text-4xl">
-    <div class="flex z-10 flex-col items-center max-w-full w-[490px] max-md:text-4xl">
-      <h1 class="self-stretch max-md:max-w-full max-md:text-4xl">More Growth. More Clients</h1>
-      <p class="mt-16 text-red-500 max-md:mt-10 max-md:text-4xl">Guaranteed</p>
-      <a href="#" class="px-11 py-7 mt-12 text-3xl text-white bg-red-500 border-2 border-black border-solid shadow-sm rounded-[47px] max-md:px-5 max-md:mt-10">YES, I WANT THAT</a>
-      <h2 class="mt-28 text-4xl max-md:mt-10">Marketing is important...</h2>
+  
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">More Growth. More Clients</h1>
+      <h2 class="hero-subtitle">Guaranteed</h2>
+      <button class="cta-button">YES, I WANT THAT</button>
+      <p class="marketing-text">Marketing is important...</p>
     </div>
-  </main>
-  <p class="mt-14 text-3xl font-light text-center text-black max-md:mt-10 max-md:max-w-full">
-    ...However, there are already 101 things on your to-do list. <br /> And they are all important too
+  </section>
+  
+  <p class="description">
+    ...However, there are already 101 things on your to-do list. <br />
+    And they are all important too
   </p>
-  <h2 class="mt-24 text-4xl font-medium text-center text-black max-md:mt-10 max-md:max-w-full">
-    <span>So How Do Yo</span><span class="tracking-[4.4px]">u</span><span>Get The</span><br />
+  
+  <h2 class="question-section">
+    <span>So How Do Yo</span>
+    <span style="letter-spacing: 4.4px;">u</span>
+    <span>Get The</span>
+    <br />
     <span>Most Out Of Your Marketing?</span>
   </h2>
-  <section class="px-5 mt-2 max-w-full w-[724px]">
-    <div class="flex gap-5 max-md:flex-col">
-      <article class="flex flex-col w-[35%] max-md:ml-0 max-md:w-full">
-        <div class="flex flex-col grow mt-6 text-xs font-light text-center text-black max-md:mt-10">
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Do everything yourself icon" class="self-center aspect-square w-[43px]" />
-          <h3 class="mt-8 text-sm font-medium">DO EVERYTHING YOURSELF?</h3>
-          <p class="mt-7">If you have little to do, it is not a <br /> problem.</p>
-          <p class="mt-6">However, if you are busy... this is not <br /> feasible</p>
+  
+  <div class="options-container">
+    <div class="options-grid">
+      <div class="option-column">
+        <div class="option-content">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" class="option-icon" alt="Do it yourself icon" />
+          <h3 class="option-title">DO EVERYTHING YOURSELF?</h3>
+          <p class="option-description">
+            If you have little to do, it is not a <br /> problem.
+          </p>
+          <p class="option-note">
+            However, if you are busy... this is not <br /> feasible
+          </p>
         </div>
-      </article>
-      <article class="flex flex-col ml-5 w-[37%] max-md:ml-0 max-md:w-full">
-        <div class="flex flex-col grow items-center mt-5 max-md:mt-10">
-          <div class="flex">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Hire new staff icon 1" class="shrink-0 aspect-square w-[43px]" />
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Hire new staff icon 2" class="shrink-0 aspect-square w-[43px]" />
+      </div>
+      <div class="option-column">
+        <div class="option-content">
+          <div>
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" class="option-icon" alt="Hire staff icon 1" />
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" class="option-icon" alt="Hire staff icon 2" />
           </div>
-          <h3 class="mt-7 text-sm font-medium text-center text-black">HIRE NEW STAFF?</h3>
-          <p class="mt-9 text-xs font-light text-center text-black">
+          <h3 class="option-title">HIRE NEW STAFF?</h3>
+          <p class="option-description">
             Finding good people is difficult, <br /> training them is expensive. <br /> <br />
           </p>
-          <p class="self-stretch mt-5 text-xs font-light text-center text-black">
+          <p class="option-note">
             Even if you have find the perfect person... <br /> You still rely on one individual
           </p>
         </div>
-      </article>
-      <article class="flex flex-col ml-5 w-[28%] max-md:ml-0 max-md:w-full">
-        <div class="flex flex-col grow items-center text-center text-black max-md:mt-10">
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/276842d069d0c9000aac16a3c158bbe307d02629563f6c94afa02e3166f93fec?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Hire an agency icon" class="aspect-[1.35] w-[86px]" />
-          <h3 class="mt-7 text-sm font-medium">HIRE AN AGENCY?</h3>
-          <p class="self-stretch mt-9 text-xs font-light">
+      </div>
+      <div class="option-column">
+        <div class="option-content">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/276842d069d0c9000aac16a3c158bbe307d02629563f6c94afa02e3166f93fec?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" class="option-icon" alt="Hire agency icon" />
+          <h3 class="option-title">HIRE AN AGENCY?</h3>
+          <p class="option-description">
             Don't have a marketing budget of tens <br /> of thousands of dollars per month? Well <br /> then your account is often managed <br /> by intern of the assistant of the <br /> assistant. Not ideal.
           </p>
         </div>
-      </article>
+      </div>
     </div>
-  </section>
-  <h2 class="mt-16 text-6xl text-center text-black max-md:mt-10 max-md:max-w-full max-md:text-4xl">
-    "OK... But What Makes You Different?"
-  </h2>
-  <section class="mt-11 max-w-full w-[979px] max-md:mt-10">
-    <div class="flex gap-5 max-md:flex-col">
-      <article class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-        <div class="flex flex-col grow justify-center p-px w-full text-base text-center text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
-          <div class="flex flex-col items-center p-20 bg-white max-md:px-5 max-md:max-w-full">
-            <h3 class="text-3xl">GUARANTEE</h3>
-            <p class="mt-9 leading-6">
+  </div>
+  
+  <h2 class="difference-title">"OK... But What Makes You Different?"</h2>
+  
+  <div class="difference-grid">
+    <div class="difference-row">
+      <div class="difference-column">
+        <div class="difference-item">
+          <div class="difference-content">
+            <h3 class="difference-heading">GUARANTEE</h3>
+            <p class="difference-text">
               We only win if you win. That's the basis for a good <br /> partnership.
             </p>
-            <p class="mt-8 mb-4">You won't carry all the risk, we'll share it.</p>
+            <p class="difference-subtext">
+              You won't carry all the risk, we'll share it.
+            </p>
           </div>
         </div>
-      </article>
-      <article class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-        <div class="flex flex-col grow justify-center p-px w-full text-base text-center text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
-          <div class="flex justify-center items-center px-16 py-20 bg-white max-md:px-5 max-md:max-w-full">
-            <div class="flex flex-col items-center mb-3.5">
-              <h3 class="text-3xl">RESULT</h3>
-              <p class="self-stretch mt-9">Our first priority is to get you results.</p>
-              <p class="mt-8">Less talk, more walk.</p>
-            </div>
+      </div>
+      <div class="difference-column">
+        <div class="difference-item">
+          <div class="difference-content">
+            <h3 class="difference-heading">RESULT</h3>
+            <p class="difference-text">
+              Our first priority is to get you results.
+            </p>
+            <p class="difference-subtext">Less talk, more walk.</p>
           </div>
         </div>
-      </article>
+      </div>
     </div>
-  </section>
-  <section class="mt-9 max-w-full w-[979px]">
-    <div class="flex gap-5 max-md:flex-col">
-      <article class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-        <div class="flex flex-col grow justify-center p-px w-full text-base text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
-          <div class="flex flex-col items-start px-12 py-20 bg-white max-md:px-5 max-md:max-w-full">
-            <h3 class="self-center text-3xl text-center">LOCAL</h3>
-            <p class="mt-9 leading-6">
+  </div>
+  
+  <div class="difference-grid">
+    <div class="difference-row">
+      <div class="difference-column">
+        <div class="difference-item">
+          <div class="difference-content">
+            <h3 class="difference-heading">LOCAL</h3>
+            <p class="difference-text">
               We are not tucked away in some anonymous call <br /> center.
             </p>
-            <p class="mt-8 leading-6">
+            <p class="difference-subtext">
+              <p class="difference-subtext">
               We're a local company, so you'll be able to reach us <br /> when you need us.
             </p>
           </div>
         </div>
-      </article>
-      <article class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-        <div class="flex flex-col grow justify-center p-px w-full text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
-          <div class="flex flex-col px-12 py-20 bg-white max-md:px-5 max-md:max-w-full">
-            <h3 class="self-center text-3xl text-center">SPECIALIZATION</h3>
-            <p class="self-start mt-9 text-base leading-6">
-              Jack of all trades... Master of none. Specialization <br /> works. <br /> <br />
+      </div>
+      <div class="difference-column">
+        <div class="difference-item">
+          <div class="difference-content">
+            <h3 class="difference-heading">SPECIALIZATION</h3>
+            <p class="difference-text">
+              Jack of all trades... Master of none. Specialization <br /> works.
+            </p>
+            <p class="difference-subtext">
               That's why we work with industries we know, so we <br /> can guarantee results.
             </p>
           </div>
         </div>
-      </article>
+      </div>
     </div>
-  </section>
-  <section class="flex justify-center items-center self-stretch px-16 py-16 mt-16 w-full font-medium text-center text-white bg-neutral-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
-    <div class="flex flex-col max-w-full w-[355px]">
-      <h2 class="text-3xl">
+  </div>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2 class="cta-text">
         Contact Us For A <br /> Free Marketing Consultation:
       </h2>
-      <a href="#" class="self-center px-7 py-6 mt-16 text-3xl bg-red-500 border-2 border-black border-solid shadow-sm rounded-[47px] max-md:px-5 max-md:mt-10">
-        YES, I WANT THAT
-      </a>
+      <button class="cta-button-secondary">YES, I WANT THAT</button>
     </div>
   </section>
-  <footer class="self-stretch w-full bg-black min-h-[171px] max-md:max-w-full"></footer>
+
+  <footer class="footer"></footer>
 </section>
