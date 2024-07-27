@@ -1,258 +1,136 @@
-import React from 'react';
-
-const Header: React.FC = () => {
-  return (
-    <header className="flex justify-center items-center px-16 py-2.5 w-full bg-white shadow-[0px_0px_5px_rgba(0,0,0,0.7)] max-md:px-5 max-md:max-w-full">
-      <div className="flex gap-5 justify-between max-w-full w-[600px] max-md:flex-wrap">
-        <div className="flex flex-col text-xs font-medium text-center whitespace-nowrap tracking-[4.98px]">
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/641a0ccac91c267016f48e3cc977327549e8b5111786857e0c60dcb8cd7bd97a?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Marketing logo" className="self-center aspect-[1.35] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[74px]" />
+<section class="flex flex-col items-center bg-white">
+  <header class="flex flex-col justify-center self-stretch w-full text-black max-md:max-w-full">
+    <nav class="flex justify-center items-center px-16 py-2.5 w-full bg-white shadow-[0px_0px_5px_rgba(0,0,0,0.7)] max-md:px-5 max-md:max-w-full">
+      <div class="flex gap-5 justify-between max-w-full w-[600px] max-md:flex-wrap">
+        <div class="flex flex-col text-xs font-medium text-center whitespace-nowrap tracking-[4.98px]">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/641a0ccac91c267016f48e3cc977327549e8b5111786857e0c60dcb8cd7bd97a?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Marketing logo" class="self-center aspect-[1.35] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[74px]" />
           <div>MARKETING</div>
         </div>
-        <nav className="flex gap-5 my-auto text-sm">
-          <a href="#" className="text-blue-700">Home</a>
-          <a href="#" className="flex-auto">Free Marketing Analysis</a>
-          <a href="#">Blog</a>
-        </nav>
+        <ul class="flex gap-5 my-auto text-sm">
+          <li><a href="#" class="text-blue-700">Home</a></li>
+          <li><a href="#">Free Marketing Analysis</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
       </div>
-    </header>
-  );
-};
-
-export default Header;import React from 'react';
-
-interface HeroProps {}
-
-const Hero: React.FC<HeroProps> = () => {
-  return (
-    <section className="flex flex-col items-center self-stretch px-16 pt-11 w-full text-5xl font-medium text-center text-black max-md:px-5 max-md:max-w-full max-md:text-4xl">
-      <div className="flex z-10 flex-col items-center max-w-full w-[490px] max-md:text-4xl">
-        <h1 className="self-stretch max-md:max-w-full max-md:text-4xl">
-          More Growth. More Clients
-        </h1>
-        <div className="mt-16 text-red-500 max-md:mt-10 max-md:text-4xl">
-          Guaranteed
-        </div>
-        <button className="px-11 py-7 mt-12 text-3xl text-white bg-red-500 border-2 border-black border-solid shadow-sm rounded-[47px] max-md:px-5 max-md:mt-10">
-          YES, I WANT THAT
-        </button>
-        <h2 className="mt-28 text-4xl max-md:mt-10">Marketing is important...</h2>
-      </div>
-    </section>
-  );
-};
-
-export default Hero;import React from 'react';
-
-interface OptionProps {
-  icon: string;
-  title: string;
-  description: string[];
-}
-
-const Option: React.FC<OptionProps> = ({ icon, title, description }) => {
-  return (
-    <div className="flex flex-col grow mt-6 text-xs font-light text-center text-black max-md:mt-10">
-      <img
-        loading="lazy"
-        src={icon}
-        alt={`${title} icon`}
-        className="self-center aspect-square w-[43px]"
-      />
-      <div className="mt-8 text-sm font-medium">{title}</div>
-      {description.map((line, index) => (
-        <div key={index} className="mt-6">
-          {line}
-        </div>
-      ))}
+    </nav>
+  </header>
+  <main class="flex flex-col items-center self-stretch px-16 pt-11 w-full text-5xl font-medium text-center text-black max-md:px-5 max-md:max-w-full max-md:text-4xl">
+    <div class="flex z-10 flex-col items-center max-w-full w-[490px] max-md:text-4xl">
+      <h1 class="self-stretch max-md:max-w-full max-md:text-4xl">More Growth. More Clients</h1>
+      <p class="mt-16 text-red-500 max-md:mt-10 max-md:text-4xl">Guaranteed</p>
+      <a href="#" class="px-11 py-7 mt-12 text-3xl text-white bg-red-500 border-2 border-black border-solid shadow-sm rounded-[47px] max-md:px-5 max-md:mt-10">YES, I WANT THAT</a>
+      <h2 class="mt-28 text-4xl max-md:mt-10">Marketing is important...</h2>
     </div>
-  );
-};
-
-interface MarketingOptionsProps {}
-
-const MarketingOptions: React.FC<MarketingOptionsProps> = () => {
-  const options = [
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8",
-      title: "DO EVERYTHING YOURSELF?",
-      description: [
-        "If you have little to do , it is not a problem.",
-        "However, if you are busy... this is not feasible",
-      ],
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8",
-      title: "HIRE NEW STAFF?",
-      description: [
-        "Finding good people is difficult, training them is expensive.",
-        "Even if you have find the perfect person... You still rely on one individual",
-      ],
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/276842d069d0c9000aac16a3c158bbe307d02629563f6c94afa02e3166f93fec?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8",
-      title: "HIRE AN AGENCY?",
-      description: [
-        "Don't have a marketing budget of tens of thousands of dollars per month? Well then your account is often managed by intern of the assistant of the assistant. Not ideal.",
-      ],
-    },
-  ];
-
-  return (
-    <section className="px-5 mt-2 max-w-full w-[724px]">
-      <div className="flex gap-5 max-md:flex-col">
-        {options.map((option, index) => (
-          <div
-            key={index}
-            className={`flex flex-col ${
-              index > 0 ? 'ml-5' : ''
-            } w-[35%] max-md:ml-0 max-md:w-full`}
-          >
-            <Option {...option} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-export default MarketingOptions;import React from 'react';
-
-interface FeatureCardProps {
-  title: string;
-  description: string[];
-}
-
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description }) => {
-  return (
-    <div className="flex flex-col grow justify-center p-px w-full text-base text-center text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
-      <div className="flex flex-col items-center p-20 bg-white max-md:px-5 max-md:max-w-full">
-        <h3 className="text-3xl">{title}</h3>
-        {description.map((line, index) => (
-          <div key={index} className={`mt-${index === 0 ? '9' : '8'} leading-6`}>
-            {line}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default FeatureCard;import React from 'react';
-import FeatureCard from './FeatureCard';
-
-interface FeaturesProps {}
-
-const Features: React.FC<FeaturesProps> = () => {
-  const features = [
-    {
-      title: "GUARANTEE",
-      description: [
-        "We only win if you win. That's the basis for a good partnership.",
-        "You won't carry all the risk, we'll share it.",
-      ],
-    },
-    {
-      title: "RESULT",
-      description: [
-        "Our first priority is to get you results.",
-        "Less talk, more walk.",
-      ],
-    },
-    {
-      title: "LOCAL",
-      description: [
-        "We are not tucked away in some anonymous call center.",
-        "We're a local company, so you'll be able to reach us when you need us.",
-      ],
-    },
-    {
-      title: "SPECIALIZATION",
-      description: [
-        "Jack of all trades... Master of none. Specialization works.",
-        "That's why we work with industries we know, so we can guarantee results.",
-      ],
-    },
-  ];
-
-  return (
-    <section className="mt-9 max-w-full w-[979px]">
-      <div className="flex gap-5 flex-wrap max-md:flex-col">
-        {features.map((feature, index) => (
-          <div key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-            <FeatureCard {...feature} />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-export default Features;import React from 'react';
-
-interface CallToActionProps {}
-
-const CallToAction: React.FC<CallToActionProps> = () => {
-  return (
-    <section className="flex justify-center items-center self-stretch px-16 py-16 mt-16 w-full font-medium text-center text-white bg-neutral-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
-      <div className="flex flex-col max-w-full w-[355px]">
-        <h2 className="text-3xl">
-          Contact Us For A<br /> Free Marketing Consultation:
-        </h2>
-        <button className="self-center px-7 py-6 mt-16 text-3xl bg-red-500 border-2 border-black border-solid shadow-sm rounded-[47px] max-md:px-5 max-md:mt-10">
-          YES, I WANT THAT
-        </button>
-      </div>
-    </section>
-  );
-};
-
-export default CallToAction;import React from 'react';
-
-interface FooterProps {}
-
-const Footer: React.FC<FooterProps> = () => {
-  return (
-    <footer className="self-stretch w-full bg-black min-h-[171px] max-md:max-w-full" />
-  );
-};
-
-export default Footer;import React from 'react';
-import Header from './Header';
-import Hero from './Hero';
-import MarketingOptions from './MarketingOptions';
-import Features from './Features';
-import CallToAction from './CallToAction';
-import Footer from './Footer';
-
-interface MarketingPageProps {}
-
-const MarketingPage: React.FC<MarketingPageProps> = () => {
-  return (
-    <div className="flex flex-col items-center bg-white">
-      <Header />
-      <main>
-        <Hero />
-        <div className="mt-14 text-3xl font-light text-center text-black max-md:mt-10 max-md:max-w-full">
-          ...However, there are already 101 things on your to-do list. <br /> And they are all
-          important too{" "}
+  </main>
+  <p class="mt-14 text-3xl font-light text-center text-black max-md:mt-10 max-md:max-w-full">
+    ...However, there are already 101 things on your to-do list. <br /> And they are all important too
+  </p>
+  <h2 class="mt-24 text-4xl font-medium text-center text-black max-md:mt-10 max-md:max-w-full">
+    <span>So How Do Yo</span><span class="tracking-[4.4px]">u</span><span>Get The</span><br />
+    <span>Most Out Of Your Marketing?</span>
+  </h2>
+  <section class="px-5 mt-2 max-w-full w-[724px]">
+    <div class="flex gap-5 max-md:flex-col">
+      <article class="flex flex-col w-[35%] max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow mt-6 text-xs font-light text-center text-black max-md:mt-10">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Do everything yourself icon" class="self-center aspect-square w-[43px]" />
+          <h3 class="mt-8 text-sm font-medium">DO EVERYTHING YOURSELF?</h3>
+          <p class="mt-7">If you have little to do, it is not a <br /> problem.</p>
+          <p class="mt-6">However, if you are busy... this is not <br /> feasible</p>
         </div>
-        <h2 className="mt-24 text-4xl font-medium text-center text-black max-md:mt-10 max-md:max-w-full">
-          <span className="">So How Do Yo</span>
-          <span className="tracking-[4.4px]">u</span>
-          <span className=""> Get The </span>
-          <br />
-          <span className="">Most Out Of Your Marketing?</span>
-        </h2>
-        <MarketingOptions />
-        <h2 className="mt-16 text-6xl text-center text-black max-md:mt-10 max-md:max-w-full max-md:text-4xl">
-          &quot;OK... But What Makes You Different?&quot;
-        </h2>
-        <Features />
-        <CallToAction />
-      </main>
-      <Footer />
+      </article>
+      <article class="flex flex-col ml-5 w-[37%] max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow items-center mt-5 max-md:mt-10">
+          <div class="flex">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Hire new staff icon 1" class="shrink-0 aspect-square w-[43px]" />
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e11430c0d7912aedd9d0a1e944f38b7ba12330a831099b9ac60e89c52316144f?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Hire new staff icon 2" class="shrink-0 aspect-square w-[43px]" />
+          </div>
+          <h3 class="mt-7 text-sm font-medium text-center text-black">HIRE NEW STAFF?</h3>
+          <p class="mt-9 text-xs font-light text-center text-black">
+            Finding good people is difficult, <br /> training them is expensive. <br /> <br />
+          </p>
+          <p class="self-stretch mt-5 text-xs font-light text-center text-black">
+            Even if you have find the perfect person... <br /> You still rely on one individual
+          </p>
+        </div>
+      </article>
+      <article class="flex flex-col ml-5 w-[28%] max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow items-center text-center text-black max-md:mt-10">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/276842d069d0c9000aac16a3c158bbe307d02629563f6c94afa02e3166f93fec?apiKey=814e79909da74a38955a7e92ef9046b8&&apiKey=814e79909da74a38955a7e92ef9046b8" alt="Hire an agency icon" class="aspect-[1.35] w-[86px]" />
+          <h3 class="mt-7 text-sm font-medium">HIRE AN AGENCY?</h3>
+          <p class="self-stretch mt-9 text-xs font-light">
+            Don't have a marketing budget of tens <br /> of thousands of dollars per month? Well <br /> then your account is often managed <br /> by intern of the assistant of the <br /> assistant. Not ideal.
+          </p>
+        </div>
+      </article>
     </div>
-  );
-};
-
-export default MarketingPage;
+  </section>
+  <h2 class="mt-16 text-6xl text-center text-black max-md:mt-10 max-md:max-w-full max-md:text-4xl">
+    "OK... But What Makes You Different?"
+  </h2>
+  <section class="mt-11 max-w-full w-[979px] max-md:mt-10">
+    <div class="flex gap-5 max-md:flex-col">
+      <article class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow justify-center p-px w-full text-base text-center text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
+          <div class="flex flex-col items-center p-20 bg-white max-md:px-5 max-md:max-w-full">
+            <h3 class="text-3xl">GUARANTEE</h3>
+            <p class="mt-9 leading-6">
+              We only win if you win. That's the basis for a good <br /> partnership.
+            </p>
+            <p class="mt-8 mb-4">You won't carry all the risk, we'll share it.</p>
+          </div>
+        </div>
+      </article>
+      <article class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow justify-center p-px w-full text-base text-center text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
+          <div class="flex justify-center items-center px-16 py-20 bg-white max-md:px-5 max-md:max-w-full">
+            <div class="flex flex-col items-center mb-3.5">
+              <h3 class="text-3xl">RESULT</h3>
+              <p class="self-stretch mt-9">Our first priority is to get you results.</p>
+              <p class="mt-8">Less talk, more walk.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="mt-9 max-w-full w-[979px]">
+    <div class="flex gap-5 max-md:flex-col">
+      <article class="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow justify-center p-px w-full text-base text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
+          <div class="flex flex-col items-start px-12 py-20 bg-white max-md:px-5 max-md:max-w-full">
+            <h3 class="self-center text-3xl text-center">LOCAL</h3>
+            <p class="mt-9 leading-6">
+              We are not tucked away in some anonymous call <br /> center.
+            </p>
+            <p class="mt-8 leading-6">
+              We're a local company, so you'll be able to reach us <br /> when you need us.
+            </p>
+          </div>
+        </div>
+      </article>
+      <article class="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+        <div class="flex flex-col grow justify-center p-px w-full text-black border border-solid bg-white bg-opacity-0 border-zinc-500 shadow-[0px_1px_4px_rgba(0,0,0,1)] max-md:mt-9 max-md:max-w-full">
+          <div class="flex flex-col px-12 py-20 bg-white max-md:px-5 max-md:max-w-full">
+            <h3 class="self-center text-3xl text-center">SPECIALIZATION</h3>
+            <p class="self-start mt-9 text-base leading-6">
+              Jack of all trades... Master of none. Specialization <br /> works. <br /> <br />
+              That's why we work with industries we know, so we <br /> can guarantee results.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="flex justify-center items-center self-stretch px-16 py-16 mt-16 w-full font-medium text-center text-white bg-neutral-700 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+    <div class="flex flex-col max-w-full w-[355px]">
+      <h2 class="text-3xl">
+        Contact Us For A <br /> Free Marketing Consultation:
+      </h2>
+      <a href="#" class="self-center px-7 py-6 mt-16 text-3xl bg-red-500 border-2 border-black border-solid shadow-sm rounded-[47px] max-md:px-5 max-md:mt-10">
+        YES, I WANT THAT
+      </a>
+    </div>
+  </section>
+  <footer class="self-stretch w-full bg-black min-h-[171px] max-md:max-w-full"></footer>
+</section>
